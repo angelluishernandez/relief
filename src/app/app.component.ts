@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     const currentHistory = this.readHistory();
-    this.videos = currentHistory;
+    this.videos = currentHistory || [];
+    console.log(this.videos);
   }
   // Methods //
   /////////////
@@ -48,6 +49,8 @@ export class AppComponent implements OnInit {
           thumbnail: snippet.thumbnails.standard.url,
           videoUrl: video,
         };
+        console.log('LLLLLLLLLLLLLLLLLLLLL');
+        console.log(this.videos);
         this.videos.push(this.currentVideo);
         this.saveHistory(this.videos);
       });
