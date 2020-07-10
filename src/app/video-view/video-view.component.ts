@@ -28,8 +28,6 @@ export class VideoViewComponent implements OnInit {
     const innerHeightToVideoHeight = innerWidthToVideoWidth / (16 / 9);
     this.videoWidth = innerWidthToVideoWidth.toFixed().toString();
     this.videoHeight = innerHeightToVideoHeight.toFixed().toString();
-
-    console.log(this.innerWidth, this.innerHeight, this.videoWidth);
   }
 
   constructor() {

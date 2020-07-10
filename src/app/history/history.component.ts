@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { faLink } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-history',
@@ -7,10 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
   @Input() videos;
+  @Output() videoID = new EventEmitter<String>();
+
+  faLink = faLink;
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.videos);
+  ngOnInit(): void {}
+
+  deleteHistory() {
+    localStorage.removeItem('history');
+  }
+
+  onWatchAgainClick(videoID) {
+    this.videoID.emit(videoID);
   }
 }

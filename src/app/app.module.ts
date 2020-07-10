@@ -13,6 +13,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { VideoViewComponent } from './video-view/video-view.component';
 import { HistoryComponent } from './history/history.component';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BookmarksComponent } from './bookmarks/bookmarks.component';
     HttpClientModule,
     YouTubePlayerModule,
     AppRoutingModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

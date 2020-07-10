@@ -3,7 +3,10 @@
     <div class="col-12">
       <app-search-bar (videoID)="onVideoAdded($event)"></app-search-bar>
       <app-video-view [videoID]="currentVideoID"></app-video-view>
-      <!-- <app-history [videos]="videos"></app-history> -->
+      <app-history
+        [videos]="videos"
+        (videoID)="onHistoryVideoClick($event)"
+      ></app-history>
       <app-bookmarks></app-bookmarks>
     </div>
   </div>

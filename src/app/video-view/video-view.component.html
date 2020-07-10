@@ -1,4 +1,4 @@
-<div *ngIf="videoID; else elseBlock" class="col-10 mx-auto">
+<div *ngIf="videoID; else elseBlock" class="bg-success">
   <youtube-player
     [height]="videoHeight"
     [width]="videoWidth"
@@ -9,7 +9,7 @@
 <div>
   <ng-template #elseBlock>
     <h1>
-      There are no videos yet
+      Please enter a Youtube url to watch a video
     </h1>
   </ng-template>
 </div>

@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   currentVideoID: String;
   currentVideo: Object;
   videos = [];
+  favourites = [];
 
   // Lifecycle//
   /////////////
@@ -22,8 +23,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     const currentHistory = this.readHistory();
+
+    // If currentHistory returns null set videos to an ampty array
     this.videos = currentHistory || [];
-    console.log(this.videos);
   }
   // Methods //
   /////////////
@@ -48,11 +50,22 @@ export class AppComponent implements OnInit {
           title: snippet.title,
           thumbnail: snippet.thumbnails.standard.url,
           videoUrl: video,
+          videoID: this.currentVideoID,
+          inFavourites: false,
         };
-        console.log('LLLLLLLLLLLLLLLLLLLLL');
-        console.log(this.videos);
+
         this.videos.push(this.currentVideo);
         this.saveHistory(this.videos);
       });
   }
+
+  // Watch clicked video when user clicks in history
+
+  onHistoryVideoClick(videoID) {
+    this.currentVideoID = videoID;
+  }
+
+  // Add video to favourites
+
+  onFavourited(video) {}
 }

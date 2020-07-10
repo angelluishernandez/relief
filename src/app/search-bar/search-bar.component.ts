@@ -1,4 +1,3 @@
-import { Video } from './../Video';
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -11,8 +10,6 @@ export class SearchBarComponent {
   videoURL;
 
   onSubmitVideo() {
-    const videoURLToId = this.videoURL;
-
-    this.videoID.emit(videoURLToId);
+    this.videoID.emit(this.videoURL);
   }
 }
