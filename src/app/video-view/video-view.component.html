@@ -1,0 +1,15 @@
+<div *ngIf="videoID; else elseBlock" class="col-10 mx-auto">
+  <youtube-player
+    [height]="videoHeight"
+    [width]="videoWidth"
+    videoId="{{ videoID }}"
+    suggestedQuality="highres"
+  ></youtube-player>
+</div>
+<div>
+  <ng-template #elseBlock>
+    <h1>
+      There are no videos yet
+    </h1>
+  </ng-template>
+</div>

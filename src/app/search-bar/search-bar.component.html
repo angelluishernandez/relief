@@ -1,0 +1,15 @@
+<div class="col-12">
+  <div>
+    <label for="url">
+      Put your URL here
+      <input
+        type="text"
+        placeholder="Youtube url..."
+        class="form-control"
+        [(ngModel)]="videoURL"
+      />
+    </label>
+
+    <button (click)="onSubmitVideo()">Add video</button>
+  </div>
+</div>
