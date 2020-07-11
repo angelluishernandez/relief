@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { YoutubeViewerService } from '../youtube-viewer.service';
 
 @Component({
   selector: 'app-history',
@@ -7,20 +8,30 @@ import { faLink } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./history.component.css'],
 })
 export class HistoryComponent implements OnInit {
-  @Input() videos;
-  @Output() videoID = new EventEmitter<String>();
+  videos = [];
+
+  @Output() currentVideoItem = new EventEmitter<Object>();
+  @Output() favouritedVideo = new EventEmitter<Object>();
 
   faLink = faLink;
 
-  constructor() {}
+  constructor(private youtubeViewerService: YoutubeViewerService) {
+    this.videos = this.youtubeViewerService.historyVideos || [];
+  }
 
   ngOnInit(): void {}
 
-  deleteHistory() {
-    localStorage.removeItem('history');
+  onWatchAgainClick(video) {
+    this.currentVideoItem.emit(video);
   }
 
-  onWatchAgainClick(videoID) {
-    this.videoID.emit(videoID);
+  deleteItem(video) {
+    this.youtubeViewerService.deleteVideo(video, 'history');
+    this.videos = this.youtubeViewerService.historyVideos;
+  }
+
+  deleteHistory(localStorageKey) {
+    this.youtubeViewerService.clearStorageItem(localStorageKey);
+    this.videos = [];
   }
 }

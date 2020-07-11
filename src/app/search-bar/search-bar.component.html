@@ -1,15 +1,32 @@
-<div class="col-12">
+<div class="col-8 search-bar">
   <div>
-    <label for="url">
-      Put your URL here
-      <input
-        type="text"
-        placeholder="Youtube url..."
-        class="form-control"
-        [(ngModel)]="videoURL"
-      />
-    </label>
+    <div class="search-bar-title">
+      <h3><u>YouTube Player</u></h3>
+    </div>
+    <h5>
+      This is an app created for Relief Applications
+    </h5>
 
-    <button (click)="onSubmitVideo()">Add video</button>
+    <p>
+      To look for a video in Youtube, please, enter a valid Youtube URL
+    </p>
+    <p>
+      Thanks to the Youtube API, this app will get all the necessary info
+      related to the video
+    </p>
   </div>
+
+  <label for="url">
+    <h5 class="my-2">Put your URL here</h5>
+    <input
+      type="text"
+      placeholder="Youtube url..."
+      class="form-control"
+      [(ngModel)]="videoURL"
+    />
+  </label>
+
+  <button (click)="onAddedVideo(videoURL)" class="button search-button">
+    Add video
+  </button>
 </div>

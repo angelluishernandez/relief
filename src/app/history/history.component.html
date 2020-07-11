@@ -1,12 +1,15 @@
-<div *ngIf="videos.length > 0; else elseBlock" class="col-4">
+<div *ngIf="videos.length > 0; else elseBlock" class="col-6 mx-auto">
   <div>
-    <button class="btn btn-danger" (click)="deleteHistory()">
+    <button class="btn btn-danger" (click)="deleteHistory('history')">
       Delete history
     </button>
   </div>
   <div *ngFor="let video of videos" class="card">
-    <button class="btn btn-warning" (click)="onWatchAgainClick(video.videoID)">
+    <button class="btn btn-warning" (click)="onWatchAgainClick(video)">
       Watch again
+    </button>
+    <button class="btn btn-danger" (click)="deleteItem(video)">
+      Delete this video
     </button>
 
     <img
@@ -21,7 +24,9 @@
         Watch in YouTube</a
       >
     </div>
-    <button class="btn btn-success">Add to favourites</button>
+    <button class="btn btn-success" (click)="onFavouritedClick(video)">
+      Add to favourites
+    </button>
   </div>
 </div>
 <ng-template #elseBlock>

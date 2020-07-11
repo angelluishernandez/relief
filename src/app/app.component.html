@@ -1,13 +1,26 @@
-<div class="container bg-danger">
+<div class="container">
   <div class="row">
     <div class="col-12">
-      <app-search-bar (videoID)="onVideoAdded($event)"></app-search-bar>
-      <app-video-view [videoID]="currentVideoID"></app-video-view>
-      <app-history
-        [videos]="videos"
-        (videoID)="onHistoryVideoClick($event)"
-      ></app-history>
-      <app-bookmarks></app-bookmarks>
+      <!-- Search bar -->
+
+      <app-search-bar
+        (currentVideoItem)="setCurrentVideo($event)"
+      ></app-search-bar>
+
+      <!-- Video view -->
+
+      <app-video-view [currentVideoItem]="currentVideoItem"></app-video-view>
+      <div class="d-flex justify-content-between bg-success col-12">
+        <!-- History -->
+
+        <app-history (currentVideoItem)="setCurrentVideo($event)"></app-history>
+
+        <!-- Bookmarks -->
+
+        <app-bookmarks
+          (currentVideoItem)="setCurrentVideo($event)"
+        ></app-bookmarks>
+      </div>
     </div>
   </div>
 </div>

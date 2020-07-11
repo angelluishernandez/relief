@@ -1,8 +1,11 @@
-<div *ngIf="videoID; else elseBlock" class="bg-success">
+<div *ngIf="currentVideoItem; else elseBlock" class="video-container">
+  <button class="btn btn-warning" (click)="onBookmarkAdded(currentVideoItem)">
+    Add to favourites
+  </button>
   <youtube-player
     [height]="videoHeight"
     [width]="videoWidth"
-    videoId="{{ videoID }}"
+    videoId="{{ currentVideoItem.videoID }}"
     suggestedQuality="highres"
   ></youtube-player>
 </div>

@@ -1,6 +1,7 @@
 import { Video } from './../Video';
 import { Component, OnInit, Input } from '@angular/core';
 import { HostListener } from '@angular/core';
+import { YoutubeViewerService } from '../youtube-viewer.service';
 
 @Component({
   selector: 'app-video-view',
@@ -13,7 +14,11 @@ export class VideoViewComponent implements OnInit {
   videoWidth: string;
   videoHeight: string;
 
-  @Input() videoID;
+  constructor(private youtubeViewerService: YoutubeViewerService) {
+    this.onResize();
+  }
+
+  @Input() currentVideoItem: object;
 
   // This directive is to listen to window width in order to resize the video iframe
 
@@ -30,8 +35,8 @@ export class VideoViewComponent implements OnInit {
     this.videoHeight = innerHeightToVideoHeight.toFixed().toString();
   }
 
-  constructor() {
-    this.onResize();
+  onBookmarkAdded(video) {
+    this.youtubeViewerService.addVideo('bookmarks', video);
   }
 
   ngOnInit() {

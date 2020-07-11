@@ -1,1 +1,33 @@
-<p>bookmarks works!</p>
+<div *ngIf="videos.length > 0; else elseBlock" class="col-6 mx-auto">
+  <div>
+    <button class="btn btn-danger" (click)="deleteBookmarks('bookmarks')">
+      Delete favourites
+    </button>
+  </div>
+  <div *ngFor="let video of videos" class="card">
+    <button class="btn btn-warning" (click)="onWatchAgainClick(video)">
+      Watch again
+    </button>
+
+    <button class="btn btn-danger" (click)="deleteItem(video)">
+      Delete this video
+    </button>
+
+    <img
+      src="{{ video.thumbnail }}"
+      alt="video thumbnail"
+      class="card-img-top"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ video.title }}</h5>
+      <a href="{{ video.videoUrl }}" target="_blank">
+        <fa-icon [icon]="faLink"></fa-icon>
+        Watch in YouTube</a
+      >
+    </div>
+    <button class="btn btn-success">Add to favourites</button>
+  </div>
+</div>
+<ng-template #elseBlock>
+  <h3>There are no videos in history yet</h3>
+</ng-template>
