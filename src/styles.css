@@ -21,6 +21,11 @@ body {
   color: black;
 }
 
+iframe {
+  margin: 0 auto;
+  max-width: 80%;
+}
+
 .card {
   background-color: var(--mainBackground);
   padding: 0.2em;

@@ -1,7 +1,4 @@
-<div
-  *ngIf="currentVideoItem; else elseBlock"
-  class="view-section video-container"
->
+<div *ngIf="currentVideoItem; else elseBlock" class="video-container">
   <button
     class="button button-bookmarks"
     (click)="onBookmarkAdded(currentVideoItem)"
@@ -17,7 +14,7 @@
 </div>
 <div>
   <ng-template #elseBlock>
-    <div class="mx-auto view-section section-container text-center">
+    <div class="mx-auto video-container text-center">
       <h1>
         Please enter a Youtube url to watch a video
       </h1>
