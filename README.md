@@ -11,7 +11,11 @@ This project was made with the following particularities:
   => I have used bootstrap to aligning purposes, but it hasn't been used in any other way. 
 
   => Some tests have been made, but the testing part is far from completed. 
-  
+
+
+Also the app has been deployed to Netlify. 
+
+  [Go to site](https://optimistic-saha-dd1b66.netlify.app/)
 
 # Relief
 
