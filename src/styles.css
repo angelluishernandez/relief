@@ -46,7 +46,7 @@ iframe {
 
 @media (max-width: 1000px) {
   .section-container {
-    max-height: 40vh;
+    max-height: 50vh;
     overflow: scroll;
   }
   .card {
