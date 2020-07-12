@@ -29,13 +29,21 @@ body {
 
 .section-container {
   padding: 2em;
-  width: 60%;
+  max-height: 90vh;
+  overflow: scroll;
   background-color: var(--sectionBackground);
   border-radius: 4px;
   color: var(--mainColor);
   display: flex;
   flex-direction: column;
   margin: 2em 0;
+}
+
+@media (max-width: 1000px) {
+  .section-container {
+    max-height: 40vh;
+    overflow: scroll;
+  }
 }
 
 /* scrollbar styles   */

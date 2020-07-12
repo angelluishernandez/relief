@@ -1,21 +1,23 @@
 <div class="container-fluid">
   <h1>{{ title }}</h1>
   <div class="row">
-    <div class="col-12">
-      <!-- Search bar -->
-
-      <app-search-bar
-        (currentVideoItem)="setCurrentVideo($event)"
-      ></app-search-bar>
-
-      <!-- Video view -->
-
-      <app-video-view [currentVideoItem]="currentVideoItem"></app-video-view>
-
-      <!-- History -->
-
+    <!-- Search bar -->
+    <div class="col-lg-3 col-md-12">
       <app-history (currentVideoItem)="setCurrentVideo($event)"></app-history>
-
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <div>
+        <app-search-bar
+          (currentVideoItem)="setCurrentVideo($event)"
+        ></app-search-bar>
+      </div>
+      <!-- Video view -->
+      <div>
+        <app-video-view [currentVideoItem]="currentVideoItem"></app-video-view>
+      </div>
+    </div>
+    <!-- History -->
+    <div class="col-lg-3 col-md-12">
       <!-- Bookmarks -->
 
       <app-bookmarks

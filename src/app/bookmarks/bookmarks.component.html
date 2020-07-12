@@ -1,6 +1,6 @@
 <div
   *ngIf="videos.length > 0; else elseBlock"
-  class="mx-auto bookmarks-section section-container custom-overflow"
+  class="bookmarks-section section-container custom-overflow"
 >
   <button (click)="onToggleBookmarks()" class="button button-default">
     {{ toggleBookmarks ? "Hide" : "Show" }} your {{ videos.length }} bookmarks

@@ -3,7 +3,13 @@
   height: auto;
 }
 
-.-video-container {
+.video-container {
+  padding: 2em;
+  color: var(--mainColor);
   background-color: var(--sectionBackground);
   border-radius: 4px;
+  height: auto;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
 }
