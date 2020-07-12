@@ -45,7 +45,6 @@ body {
     overflow: scroll;
   }
   .card {
-    justify-content: center;
     max-width: 60%;
     height: auto;
     margin: 0.5em;

@@ -1,7 +1,7 @@
-.container-fluid {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-content: center; */
-  /* text-align: center; */
+.header-section {
+  margin: 2em;
+  border: 2px solid var(--mainColor);
+  text-align: center;
+  border-radius: 5px;
+  color: var(--mainColor);
 }
