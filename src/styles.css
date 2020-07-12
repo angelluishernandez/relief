@@ -29,7 +29,7 @@ body {
 
 .section-container {
   padding: 2em;
-  max-height: 90vh;
+  max-height: 90git vh;
   overflow: scroll;
   background-color: var(--sectionBackground);
   border-radius: 4px;
