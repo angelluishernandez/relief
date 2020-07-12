@@ -1,3 +1,18 @@
+# Intro
+
+This project was made with the following particularities: 
+
+  => I have used the youtube-player module. It is true that I could have used an iframe to insert the videos, but I thought it was a nice touch to implement one of Angular's lattest features such as this. 
+
+  => I have also used the Youtube API in order to get the title and the thumbnail of the videos. 
+
+  => I have respected the component tree that was specified in the instructions. I would have added new components (such as video-item for the history list) but I wanted to keep it true to the specifications. 
+
+  => I have used bootstrap to aligning purposes, but it hasn't been used in any other way. 
+
+  => Some tests have been made, but the testing part is far from completed. 
+  
+
 # Relief
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
