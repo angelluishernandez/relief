@@ -6,8 +6,11 @@
     {{ toggleBookmarks ? "Hide" : "Show" }} your {{ videos.length }} bookmarks
   </button>
   <div *ngIf="toggleBookmarks">
-    <button class="button button-delete" (click)="deleteBookmarks('bookmarks')">
-      Delete favourites
+    <button
+      class="button button-delete delete-bookmarks"
+      (click)="deleteBookmarks('bookmarks')"
+    >
+      Delete bookmarks
     </button>
 
     <div *ngFor="let video of videos" class="card">
@@ -36,7 +39,7 @@
   </div>
 </div>
 <ng-template #elseBlock>
-  <div class="mx-auto section-container bookmarks-section custom-overflow">
+  <div class="mx-auto section-container bookmarks-section custom">
     <h3>There are no videos in bookmarks yet</h3>
   </div>
 </ng-template>

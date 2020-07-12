@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -6,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class YoutubeService {
-  apiKey = 'AIzaSyC6RUt6xgH6VnwveuCbh7bYJ2CDUfG4Ybw';
+  apiKey = environment.API_KEY;
 
   constructor(public http: HttpClient) {}
 
