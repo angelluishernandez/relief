@@ -1,2 +1,21 @@
-.card {
+.history-section {
+  width: 20%;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  overflow: scroll;
+  position: absolute;
+}
+
+@media (max-width: 1000px) {
+  .history-section {
+    left: -100%;
+    width: 100vw;
+    background-color: transparent;
+    opacity: 0.5;
+  }
+}
+
+.history-content {
+  background-color: inherit;
 }

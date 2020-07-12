@@ -1,9 +1,9 @@
-<div class="col-8 search-bar">
+<div class="mx-auto section-container search-section">
   <div>
     <div class="search-bar-title">
       <h3><u>YouTube Player</u></h3>
     </div>
-    <h5>
+    <!-- <h5>
       This is an app created for Relief Applications
     </h5>
 
@@ -13,7 +13,7 @@
     <p>
       Thanks to the Youtube API, this app will get all the necessary info
       related to the video
-    </p>
+    </p> -->
   </div>
 
   <label for="url">
@@ -26,7 +26,12 @@
     />
   </label>
 
-  <button (click)="onAddedVideo(videoURL)" class="button search-button">
+  <button (click)="onAddedVideo(videoURL)" class="button button-default">
     Add video
   </button>
+
+  <div class="bg-danger" *ngIf="error" class="error">
+    Oops an error ocurred
+    <p>{{ errorMessage }}</p>
+  </div>
 </div>

@@ -11,6 +11,7 @@ export class BookmarksComponent implements OnInit {
   faLink = faLink;
 
   videos = [];
+  toggleBookmarks: Boolean = false;
 
   @Output() currentVideoItem = new EventEmitter<Object>();
 
@@ -19,6 +20,10 @@ export class BookmarksComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  onToggleBookmarks() {
+    this.toggleBookmarks = !this.toggleBookmarks;
+  }
 
   onWatchAgainClick(video) {
     this.currentVideoItem.emit(video);
@@ -30,7 +35,7 @@ export class BookmarksComponent implements OnInit {
   }
 
   deleteItem(video) {
-    this.youtubeViewerService.deleteVideo(video, 'history');
+    this.youtubeViewerService.deleteVideo('bookmarks', video);
     this.videos = this.youtubeViewerService.bookmarkedVideos;
   }
 }

@@ -14,9 +14,10 @@ export class YoutubeService {
     let url = `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoID}&key=${this.apiKey}`;
 
     return this.http.get(url).pipe(
-      map((res) => {
-        return res;
-      })
+      map(
+        (res) => res,
+        (error) => error
+      )
     );
   }
 }

@@ -11,6 +11,8 @@ export class SearchBarComponent {
   videoURL: String;
   videoID: String;
   currentVideo: Object;
+  error: Boolean = false;
+  errorMessage: String;
 
   @Output() currentVideoItem = new EventEmitter<Object>();
 
@@ -20,8 +22,20 @@ export class SearchBarComponent {
   ) {}
 
   onAddedVideo(videoURL) {
+    // At the beginning of the function this.error is set to false to make the this.errorMessage dissapear
+
+    this.error = false;
+
     this.videoID = videoURL.split('v=')[1];
     this.youtubeService.getVideoInfo(this.videoID).subscribe((data: any) => {
+      // If no item is returned by the API set error to true and return from the function
+
+      if (data.items.length < 1) {
+        this.error = true;
+        this.errorMessage = 'The url you have entered is invalid';
+        return;
+      }
+
       const snippet = data.items[0].snippet;
       this.currentVideo = {
         title: snippet.title,

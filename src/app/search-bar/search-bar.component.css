@@ -1,20 +1,5 @@
-.search-bar {
-  padding: 2em;
-  background-color: var(--sectionBackground);
-  border-radius: 4px;
-  color: var(--mainColor);
-  display: flex;
-  flex-direction: column;
-  margin: 2em 0;
-}
-
 .search-bar-title {
   padding: 0.5em;
-}
-
-.button {
-  padding: 0.5em 0.5em;
-  color: var(--mainColor);
 }
 
 .search-button {
@@ -22,9 +7,4 @@
   font-weight: bold;
   border: 2px solid var(--mainColor);
   color: var(--mainColor);
-}
-
-.search-button:hover {
-  background-color: var(--mainColor);
-  color: black;
 }

@@ -1,0 +1,8 @@
+.bookmarks-section {
+  width: 20%;
+  right: 0;
+  top: 0;
+  height: 90vh;
+  overflow: scroll;
+  position: absolute;
+}

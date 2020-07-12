@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-12">
       <!-- Search bar -->
@@ -10,17 +10,16 @@
       <!-- Video view -->
 
       <app-video-view [currentVideoItem]="currentVideoItem"></app-video-view>
-      <div class="d-flex justify-content-between bg-success col-12">
-        <!-- History -->
 
-        <app-history (currentVideoItem)="setCurrentVideo($event)"></app-history>
+      <!-- History -->
 
-        <!-- Bookmarks -->
+      <app-history (currentVideoItem)="setCurrentVideo($event)"></app-history>
 
-        <app-bookmarks
-          (currentVideoItem)="setCurrentVideo($event)"
-        ></app-bookmarks>
-      </div>
+      <!-- Bookmarks -->
+
+      <app-bookmarks
+        (currentVideoItem)="setCurrentVideo($event)"
+      ></app-bookmarks>
     </div>
   </div>
 </div>

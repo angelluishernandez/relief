@@ -1,4 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  HostListener,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { YoutubeViewerService } from '../youtube-viewer.service';
 
@@ -9,6 +15,9 @@ import { YoutubeViewerService } from '../youtube-viewer.service';
 })
 export class HistoryComponent implements OnInit {
   videos = [];
+  historyHidden: Boolean;
+  toggleSidebar: Boolean;
+  smallScreen: Boolean;
 
   @Output() currentVideoItem = new EventEmitter<Object>();
   @Output() favouritedVideo = new EventEmitter<Object>();
@@ -16,17 +25,34 @@ export class HistoryComponent implements OnInit {
   faLink = faLink;
 
   constructor(private youtubeViewerService: YoutubeViewerService) {
-    this.videos = this.youtubeViewerService.historyVideos || [];
+    // We use reverse to put the last item added first
+
+    this.videos = this.youtubeViewerService.historyVideos.reverse() || [];
   }
 
   ngOnInit(): void {}
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize(event?) {
+    window.innerWidth > 1000
+      ? (this.smallScreen = false)
+      : (this.smallScreen = true);
+  }
+
+  onToggleSideBar() {
+    this.toggleSidebar = !this.toggleSidebar;
+  }
 
   onWatchAgainClick(video) {
     this.currentVideoItem.emit(video);
   }
 
+  addToFavourites(video) {
+    this.youtubeViewerService.addVideo('bookmarks', video);
+  }
+
   deleteItem(video) {
-    this.youtubeViewerService.deleteVideo(video, 'history');
+    this.youtubeViewerService.deleteVideo('history', video);
     this.videos = this.youtubeViewerService.historyVideos;
   }
 

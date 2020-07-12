@@ -2,9 +2,102 @@
 :root {
   --mainBackground: #22252b;
   --sectionBackground: #2a2e35;
+  --scrollColor: #dbdbff;
   --mainColor: #f3ca20;
+  --errorColor: rgb(241, 14, 14);
+  --bookmarksColor: rgb(67, 192, 67);
+  --watchColor: rgb(255, 166, 1);
 }
 
 body {
   background-color: var(--mainBackground);
+}
+
+.error {
+  margin: 0.5em;
+  padding: 0.5em;
+  border-radius: 4px;
+  background-color: var(--errorColor);
+  color: black;
+}
+
+.card {
+  background-color: var(--mainBackground);
+  padding: 0.2em;
+  margin: 0.2em 0;
+}
+
+.section-container {
+  padding: 2em;
+  width: 60%;
+  background-color: var(--sectionBackground);
+  border-radius: 4px;
+  color: var(--mainColor);
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0;
+}
+
+/* scrollbar styles   */
+
+.custom-overflow::-webkit-scrollbar {
+  width: 12px;
+  background-color: transparent;
+}
+.custom-overflow::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: var(--mainBackground);
+}
+
+.custom-overflow::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  background-color: var(--scrollColor);
+}
+
+/* Button styles */
+
+.button {
+  padding: 0.5em 0.5em;
+  font-weight: bold;
+  background-color: var(--sectionBackground);
+  margin: 0.5em 0;
+  border-radius: 5px;
+}
+
+.button-default {
+  color: var(--mainColor);
+  border: 2px solid var(--mainColor);
+}
+
+.button-default:hover {
+  background-color: var(--mainColor);
+  color: black;
+}
+
+.button-delete {
+  border: 2px solid var(--errorColor);
+  color: var(--errorColor);
+}
+.button-delete:hover {
+  background-color: var(--errorColor);
+  color: black;
+}
+
+.button-bookmarks {
+  border: 2px solid var(--bookmarksColor);
+  color: var(--bookmarksColor);
+}
+
+.button-bookmarks:hover {
+  background-color: var(--bookmarksColor);
+  color: black;
+}
+.button-watch {
+  border: 2px solid var(--watchColor);
+  color: var(--watchColor);
+}
+
+.button-watch:hover {
+  background-color: var(--watchColor);
+  color: black;
 }

@@ -1,34 +1,43 @@
-<div *ngIf="videos.length > 0; else elseBlock" class="col-6 mx-auto">
-  <div>
-    <button class="btn btn-danger" (click)="deleteHistory('history')">
-      Delete history
-    </button>
-  </div>
-  <div *ngFor="let video of videos" class="card">
-    <button class="btn btn-warning" (click)="onWatchAgainClick(video)">
-      Watch again
-    </button>
-    <button class="btn btn-danger" (click)="deleteItem(video)">
-      Delete this video
-    </button>
-
-    <img
-      src="{{ video.thumbnail }}"
-      alt="video thumbnail"
-      class="card-img-top"
-    />
-    <div class="card-body">
-      <h5 class="card-title">{{ video.title }}</h5>
-      <a href="{{ video.videoUrl }}" target="_blank">
-        <fa-icon [icon]="faLink"></fa-icon>
-        Watch in YouTube</a
-      >
+<div
+  *ngIf="videos.length > 0; else elseBlock"
+  class="mx-auto section-container history-section custom-overflow"
+  (click)="onToggleSideBar()"
+>
+  <div class="history-content">
+    <h3>This is your history</h3>
+    <div>
+      <button class="button button-delete" (click)="deleteHistory('history')">
+        Delete history
+      </button>
     </div>
-    <button class="btn btn-success" (click)="onFavouritedClick(video)">
-      Add to favourites
-    </button>
+    <div *ngFor="let video of videos" class="card">
+      <button class="button button-watch" (click)="onWatchAgainClick(video)">
+        Watch again
+      </button>
+      <button class="button button-delete" (click)="deleteItem(video)">
+        Delete this video
+      </button>
+
+      <img
+        src="{{ video.thumbnail }}"
+        alt="video thumbnail"
+        class="card-img-top"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ video.title }}</h5>
+        <a href="{{ video.videoUrl }}" target="_blank">
+          <fa-icon [icon]="faLink"></fa-icon>
+          Watch in YouTube</a
+        >
+      </div>
+      <button class="button button-bookmarks" (click)="addToFavourites(video)">
+        Add to bookmarks
+      </button>
+    </div>
   </div>
 </div>
 <ng-template #elseBlock>
-  <h3>There are no videos in history yet</h3>
+  <div class="mx-auto section-container history-section">
+    <h3>There are no videos in history yet</h3>
+  </div>
 </ng-template>
