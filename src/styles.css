@@ -29,7 +29,7 @@ body {
 
 .section-container {
   padding: 2em;
-  max-height: 90git vh;
+  max-height: 90vh;
   overflow: scroll;
   background-color: var(--sectionBackground);
   border-radius: 4px;
@@ -43,6 +43,12 @@ body {
   .section-container {
     max-height: 40vh;
     overflow: scroll;
+  }
+  .card {
+    justify-content: center;
+    max-width: 60%;
+    height: auto;
+    margin: 0.5em;
   }
 }
 
